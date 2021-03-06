@@ -31,7 +31,7 @@ nlu:
     - bye bye
     - see you later
 
-- intent: affirm
+- intent: user_confirm
   examples: |
     - yes
     - y
@@ -40,7 +40,7 @@ nlu:
     - that sounds good
     - correct
 
-- intent: deny
+- intent: user_deny
   examples: |
     - no
     - n
@@ -50,39 +50,12 @@ nlu:
     - no way
     - not really
 
-- intent: mood_great
+- intent: something_wrong
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - I've got a problem
+    - What is wrong with my weather satellite?
+    - Satellite problem
+    - Something wrong
 
 - intent: bot_challenge
   examples: |
@@ -90,3 +63,10 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: need_a_joke
+  examples: |
+    - hey do you know any jokes?
+    - tell me a joke
+    - what jokes do you know? 
+    - got anything funny to share? 

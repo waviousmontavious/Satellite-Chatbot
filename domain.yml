@@ -3,25 +3,18 @@ version: "2.0"
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
+  - user_confirm
+  - user_deny
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - something_wrong
+  - need_a_joke
+
 
 responses:
   utter_greet:
   - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
 
   utter_goodbye:
   - text: "Bye"
@@ -29,6 +22,31 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
+  utter_alert_check:
+  - text: "Did you get an alert?"
+
+  utter_enter_alert:
+  - text: "Enter the alert number when prompted at www.mybrokensatellite.com"
+
+  utter_data_check:
+  - text: "Are you receiving data from the satellite?"
+
+  utter_self_test:
+  - text: "Send the self-test command and read the diagnostic code."
+
+  utter_swap_transmitter:
+  - text: "Try swapping the Transmitter"
+
+  utter_joke:
+  - text: "What do you call dangerous precipitation? \n... \nA rain of terror!"
+  - text: "What do snowmen eat for lunch? \n... \nIcebergers!"
+  - text: "How does a hurricane see? \n... \nWith its eye!"
+  - text: "Can bees fly in the rain? \n... \nNot without their yellow jackets!"
+  - text: "What is a Queen's favorite kind of precipiataion? \n... \nA reign!"
+  - text: "What do you call a wet bear? \n... \nA drizzly bear!"
+  - text: "Why does Snoop Dog need an umbrella? \n... \nFo' Drizzle!"
+
+  
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
