@@ -1,28 +1,72 @@
 version: "2.0"
 
 stories:
+# todo - add stories for basic satellite questions
+- story: ask weather sample
+  steps:
+  - intent: ask_weather
+  - action: utter_report_weather_example
 
-- story: debugging 1
+- story: diagnostic basic path
   steps:
   - intent: something_wrong
-  - action: utter_alert_check
-  - intent: user_confirm
-  - action: utter_enter_alert
+  - action: failure_form
+  - active_loop: failure_form
+  - slot_was_set:
+    - requested_slot: user_received_alert
+  - slot_was_set:
+    - user_receiving_data: true
+  - slot_was_set:
+    - user_received_alert: true
+  - slot_was_set:
+    - requested_slot: failure_id
+  - slot_was_set:
+    - failure_id: '12'
+  - slot_was_set:
+    - requested_slot: null
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_show_failure
 
-- story: debugging 2
+- story: diagnostic complex path
   steps:
   - intent: something_wrong
-  - action: utter_alert_check
-  - intent: user_deny
-  - action: utter_data_check
-  - intent: user_confirm
-  - action: utter_self_test
-
-- story: debugging 3
-  steps:
-  - intent: something_wrong
-  - action: utter_alert_check
-  - intent: user_deny
-  - action: utter_data_check
-  - intent: user_deny
-  - action: utter_swap_transmitter
+  - action: failure_form
+  - active_loop: failure_form
+  - slot_was_set:
+    - requested_slot: user_received_alert
+  - slot_was_set:
+    - user_receiving_data: null
+  - slot_was_set:
+    - user_received_alert: false
+  - slot_was_set:
+    - requested_slot: user_receiving_data
+  - slot_was_set:
+    - user_receiving_data: null
+  - slot_was_set:
+    - requested_slot: user_receiving_data
+  - slot_was_set:
+    - user_receiving_data: null
+  - slot_was_set:
+    - requested_slot: user_receiving_data
+  - slot_was_set:
+    - user_receiving_data: true
+  - slot_was_set:
+    - user_received_alert: null
+  - slot_was_set:
+    - requested_slot: user_received_alert
+  - slot_was_set:
+    - user_receiving_data: true
+  - slot_was_set:
+    - user_received_alert: true
+  - slot_was_set:
+    - requested_slot: failure_id
+  - slot_was_set:
+    - failure_id: '5'
+  - slot_was_set:
+    - requested_slot: null
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_show_failure

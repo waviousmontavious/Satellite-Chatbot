@@ -1,0 +1,17 @@
+{
+  "Failure ID 1": "The Solar Ultraviolet Imager has experienced a fault",
+  "Failure ID 2": "The Space Environmental In-Situ Suite has experienced a fault",
+  "Failure ID 3": "The Magnetometer has experienced a fault",
+  "Failure ID 4": "The Extreme Ultraviolet X-Ray Irradiance sensor has experienced a fault",
+  "Failure ID 5": "The Advanced Baseline Imager sensor has experienced a fault",
+  "Failure ID 6": "The Primary Flight Computer has experienced a fault",
+  "Failure ID 7": "The Spacecraft has entered Safe Mode",
+  "Failure ID 8": "The Spacecraft has experienced a low voltage fault",
+  "Failure ID 9": "The Spacecraft has entered a standby state",
+  "Failure ID 10": "One of the Spacecraft Reaction Wheels has failed",
+  "Failure ID 11": "One of the Spacecraft Star Trackers has failed",
+  "Failure ID 12": "The Spacecraft is no longer receiving GPS time",
+  "Failure ID 13": "The Spacecraft has rejected a command from ground",
+  "Failure ID 14": "One of the Spacecraft gyro rate sensor channels has failed",
+  "Failure ID 15": "The spacecraft has experienced an over-voltage condition"
+}

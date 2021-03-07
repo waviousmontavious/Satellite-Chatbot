@@ -2,6 +2,28 @@ version: "2.0"
 
 rules:
 
+# Test Action Rule
+- rule: run action test when requested
+  steps:
+  - intent: user_action_test
+  - action: action_test
+
+# Failure Form Rules IMPORTANT
+- rule: Activate Failure Form
+  steps:
+  - intent: something_wrong
+  - action: failure_form
+  - active_loop: failure_form
+
+- rule: Submit Failure Form
+  condition:
+  - active_loop: failure_form
+  steps:
+  - action: failure_form
+  - active_loop: null
+  - action: action_show_failure
+
+# Say Hello Goodbye, You're Welcome
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
@@ -12,11 +34,18 @@ rules:
   - intent: greet
   - action: utter_greet
 
+- rule: Say youre welcome anytime the user says thanks
+  steps:
+  - intent: thank
+  - action: utter_youre_welcome
+
+# Jokes
 - rule: Say a joke whenever the user needs a joke
   steps:
   - intent: need_a_joke
   - action: utter_joke
 
+# Bot Challenge
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge

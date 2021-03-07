@@ -1,52 +1,102 @@
-version: "2.0"
-
-intents:
-  - greet
-  - goodbye
-  - user_confirm
-  - user_deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - something_wrong
-  - need_a_joke
-
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
-  utter_alert_check:
-  - text: "Did you get an alert?"
-
-  utter_enter_alert:
-  - text: "Enter the alert number when prompted at www.mybrokensatellite.com"
-
-  utter_data_check:
-  - text: "Are you receiving data from the satellite?"
-
-  utter_self_test:
-  - text: "Send the self-test command and read the diagnostic code."
-
-  utter_swap_transmitter:
-  - text: "Try swapping the Transmitter"
-
-  utter_joke:
-  - text: "What do you call dangerous precipitation? \n... \nA rain of terror!"
-  - text: "What do snowmen eat for lunch? \n... \nIcebergers!"
-  - text: "How does a hurricane see? \n... \nWith its eye!"
-  - text: "Can bees fly in the rain? \n... \nNot without their yellow jackets!"
-  - text: "What is a Queen's favorite kind of precipiataion? \n... \nA reign!"
-  - text: "What do you call a wet bear? \n... \nA drizzly bear!"
-  - text: "Why does Snoop Dog need an umbrella? \n... \nFo' Drizzle!"
-
-  
+version: '2.0'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+# INTENTS -------------------------------------------------------------------------------------------------------------
+intents:
+- user_provide_fid
+- user_deny
+- something_wrong
+- user_confirm
+- user_action_test
+- greet
+- goodbye
+- thank
+- bot_challenge
+- need_a_joke
+- ask_weather
+# ENTITIES ------------------------------------------------------------------------------------------------------------
+entities:
+- fid
+- sensor
+# SLOTS ---------------------------------------------------------------------------------------------------------------
+slots:
+  user_received_alert:
+    type: bool
+    influence_conversation: true
+  user_receiving_data:
+    type: bool
+    influence_conversation: true
+  failure_id:
+    type: text
+    influence_conversation: true
+# RESPONSES -----------------------------------------------------------------------------------------------------------
+responses:
+  # Basic Responses
+  utter_doesnt_answer:
+  - text: Sorry, that doesn't answer my question
+  utter_greet:
+  - text: Hey! How are you?
+  utter_goodbye:
+  - text: Bye
+  utter_youre_welcome:
+  - text: You're Welcome!
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  # Satellite-related Responses
+  utter_report_weather_example:
+  - text: It's bright and sunny!
+  utter_self_test:
+  - text: Send the self-test command and read the diagnostic code.
+  utter_swap_transmitter:
+  - text: Try swapping the Transmitter
+  utter_check_for_fid:
+  - text: If you are receiving data from the satellite and there is a problem, you should have received an alert with a failure ID. Try to further analyze the data.
+  utter_joke:
+  - text: |-
+      What do you call dangerous precipitation? 
+      ... 
+      A rain of terror!
+  - text: |-
+      What do snowmen eat for lunch? 
+      ... 
+      Icebergers!
+  - text: |-
+      How does a hurricane see? 
+      ... 
+      With its eye!
+  - text: |-
+      Can bees fly in the rain? 
+      ... 
+      Not without their yellow jackets!
+  - text: |-
+      What is a Queen's favorite kind of precipiataion? 
+      ... 
+      A reign!
+  - text: |-
+      What do you call a wet bear? 
+      ... 
+      A drizzly bear!
+  - text: |-
+      Why does Snoop Dog need an umbrella? 
+      ... 
+      Fo' Drizzle!
+  # Slot Filling Questions 'utter_ask_[slot]' format required for form
+  utter_ask_user_received_alert:
+  - text: Did you get an alert?
+  utter_ask_failure_id:
+  - text: Enter the Failure ID (Number between 1 and 15)
+  utter_ask_user_receiving_data:
+  - text: Are you receiving data from the satellite?
+# ACTIONS -------------------------------------------------------------------------------------------------------------
+actions:
+- action_show_failure
+- action_test
+- validate_failure_form
+# FORMS ---------------------------------------------------------------------------------------------------------------
+forms:
+  failure_form:
+    failure_id:
+    - type: from_entity
+      entity: fid
+      intent: user_provide_fid

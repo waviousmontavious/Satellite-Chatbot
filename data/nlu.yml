@@ -1,5 +1,4 @@
 version: "2.0"
-
 nlu:
 - intent: greet
   examples: |
@@ -16,7 +15,6 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-
 - intent: goodbye
   examples: |
     - good afternoon
@@ -30,7 +28,12 @@ nlu:
     - see you around
     - bye bye
     - see you later
-
+- intent: thank
+  examples: |
+    - thank you so much
+    - thank you
+    - much appreciated
+    - thanks
 - intent: user_confirm
   examples: |
     - yes
@@ -39,7 +42,7 @@ nlu:
     - of course
     - that sounds good
     - correct
-
+    - I did
 - intent: user_deny
   examples: |
     - no
@@ -49,24 +52,44 @@ nlu:
     - don't like that
     - no way
     - not really
-
-- intent: something_wrong
-  examples: |
-    - I've got a problem
-    - What is wrong with my weather satellite?
-    - Satellite problem
-    - Something wrong
-
+    - I did not
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-
 - intent: need_a_joke
   examples: |
     - hey do you know any jokes?
     - tell me a joke
-    - what jokes do you know? 
-    - got anything funny to share? 
+    - what jokes do you know?
+    - got anything funny to share?
+- intent: ask_weather
+  examples: |
+    - how is the weather?
+    - what's the weather like?
+    - weather?
+- intent: something_wrong
+  examples: |
+    - I've got a problem
+    - What is wrong with my weather satellite?
+    - Satellite problem
+    - Something wrong
+    - hey something is wrong
+    - oh my god. something is wrong
+- intent: user_provide_fid
+  examples: |
+    - The id is [1](fid)
+    - My ID number is [2](fid)
+    - The Failure number is [3](fid)
+    - The FID is [4](fid)
+    - error says [5](fid)
+    - fid is [6](fid)
+    - FID = [7](fid)
+    - [8](fid)
+    - the fid is [12](fid)
+    - the number is [5](fid)
+- intent: user_action_test
+  examples: |
+    - action test
