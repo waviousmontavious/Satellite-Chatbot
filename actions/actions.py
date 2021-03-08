@@ -8,18 +8,20 @@ from rasa_sdk.events import AllSlotsReset
 from action_utils import get_dict, get_last_bot_event
 
 
-fid_db = get_dict('./fid-dictionary.json')
-sensor_db = get_dict('./sensor-dictionary.json')
+fid_db = get_dict('./fid-dictionary.json')  # failure id dictionary
+sensor_db = get_dict('./sensor-dictionary.json')  # sensor dictionary
 
 
-# Failure Form Validator
+# Failure Form Validator ----------------------------------------------------------------------------------------------
 class FailureForm(FormValidationAction):
 
-    activation_intent = 'something_wrong'
+    activation_intent = 'something_wrong'  # user intent that activates this form
 
+    # The name of this Action
     def name(self) -> Text:
         return "validate_failure_form"
 
+    # The required_slots() function updates the form with slots that have a custom extraction method
     async def required_slots(
         self,
         slots_mapped_in_domain: List[Text],
@@ -30,6 +32,7 @@ class FailureForm(FormValidationAction):
         custom_slots = ['user_received_alert', 'user_receiving_data']
         return custom_slots + slots_mapped_in_domain
 
+    # Extraction function for the 'user_received_alert' slot
     async def extract_user_received_alert(
         self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict,
     ) -> Dict[Text, Any]:
@@ -48,6 +51,7 @@ class FailureForm(FormValidationAction):
             dispatcher.utter_template('utter_doesnt_answer', tracker)
             return {}
 
+    # Extraction function for the 'user_receiving_data' slot
     async def extract_user_receiving_data(
             self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict,
     ) -> Dict[Text, Any]:
@@ -68,6 +72,7 @@ class FailureForm(FormValidationAction):
             dispatcher.utter_template('utter_doesnt_answer', tracker)
             return {}
 
+    # Validation for the FID (must be a key in the FID dictionary)
     def validate_failure_id(
         self,
         slot_value: Any,
@@ -82,7 +87,7 @@ class FailureForm(FormValidationAction):
             return {"failure_id": None}
 
 
-# Action for showing the user the Failure Description
+# Action for showing the user the Failure Description -----------------------------------------------------------------
 class ShowFailure(Action):
 
     def name(self) -> Text:
@@ -93,14 +98,14 @@ class ShowFailure(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         # Get the fid
         fid = tracker.get_slot("failure_id")
-        solution = fid_db[f'Failure ID {fid}']
-        # Tell user the solution
-        dispatcher.utter_message(text=solution)
+        failure = fid_db[f'Failure ID {fid}']
+        # Tell user the failure
+        dispatcher.utter_message(text=failure)
 
         return [AllSlotsReset()]
 
 
-# Test Action for debugging purposes
+# Test Action for debugging purposes ----------------------------------------------------------------------------------
 class TestAction(Action):
     def name(self) -> Text:
         return "action_test"
