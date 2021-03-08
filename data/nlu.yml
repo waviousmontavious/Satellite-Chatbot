@@ -43,6 +43,7 @@ nlu:
     - that sounds good
     - correct
     - I did
+    - I am
 - intent: user_deny
   examples: |
     - no

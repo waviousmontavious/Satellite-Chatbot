@@ -4,3 +4,8 @@ models/
 __pycache__/
 *.py[cod]
 *$py.class
+
+events.db
+events.db-shm
+events.db-wal
+rasa.db
