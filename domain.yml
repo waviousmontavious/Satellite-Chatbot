@@ -109,6 +109,7 @@ actions:
 - action_show_failure
 - action_test
 - validate_failure_form
+- action_sensor_chatter
 forms:
   failure_form:
     failure_id:

@@ -94,3 +94,21 @@ nlu:
 - intent: user_action_test
   examples: |
     - action test
+- lookup: sensor
+  examples: |
+   - solar ultraviolet imager
+   - space environmental in-situ suite
+   - magnetometer
+   - extreme ultraviolet x-ray irradiance sensor
+   - advanced baseline imager sensor
+- intent: user_sensor_query
+  examples: |
+  - what does the [solar ultraviolet imager] (sensor) do?
+  - what is the [ultraviolet imager] (sensor:solar ultraviolet imager)?
+  - what is the [space environmental in-situ suite] (sensor)?
+  - what kind of sensor is the [in situ suite] (sensor:space environmental in-situ suite)?
+  - what kind of sensor is the [magnetometer] (sensor)?
+  - tell me about the [extreme ultraviolet x-ray irradiance sensor] (sensor)
+  - what does the [xray sensor] (sensor:extreme ultraviolet x-ray irradiance sensor) do?
+  - how does the [advanced baseline imager sensor] (sensor) work?
+  - what kind of sensor is the [baseline imager] (sensor:advanced baseline imager sensor)?

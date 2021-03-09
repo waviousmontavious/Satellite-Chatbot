@@ -120,3 +120,24 @@ class TestAction(Action):
         print(fid_db)
 
         return []
+
+
+# Action for telling user about sensors -----------------------------------------------------------
+class SensorChatter(Action):
+    def name(self) -> Text:
+        return "action_sensor_chatter"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        # Get the sensor in question
+        sensor_entity = tracker.latest_message[‘entities’][0]['value']
+        print (sensor_entity)
+
+        # Get the description from the database
+        sensor_desc = fid_db[sensor_entity]
+        print(sensor_desc)
+
+        # Tell the user the description
+        dispatcher.utter_message(text=sensor_desc)
+    
