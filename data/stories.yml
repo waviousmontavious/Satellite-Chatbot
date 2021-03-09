@@ -5,7 +5,11 @@ stories:
 - story: ask weather sample
   steps:
   - intent: ask_weather
-  - action: weatherAPI
+  - slot_was_set:
+    - requested_slot: city_id
+  - slot_was_set:
+    - city_slot: true
+  - action: weather_API
 
 - story: diagnostic basic path
   steps:

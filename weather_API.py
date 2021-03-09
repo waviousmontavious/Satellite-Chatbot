@@ -2,7 +2,7 @@
 # weather details of any city 
 # using openweathermap api 
 
-def weatherAPI():
+def weather_API():
     # import required modules 
     import requests, json
 

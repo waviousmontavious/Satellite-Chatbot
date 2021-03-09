@@ -27,9 +27,36 @@ intents:
     use_entities: true
 - ask_weather:
     use_entities: true
+- sat_access:
+    use_entities: true
+- weather_affect:
+    use_entities: true
+- data_rate:
+    use_entities: true
+- maint_orbit:
+    use_entities: true
+- orbit:
+    use_entities: true
+- launched:
+    use_entities: true
+- replace:
+    use_entities: true
+- mission_end:
+    use_entities: true
+- built_by:
+    use_entities: true
+- sat_name:
+    use_entities: true
+- sat_cost:
+    use_entities: true
+- bot_name:
+    use_entities: true
+
 entities:
 - fid
 - sensor
+- city
+
 slots:
   user_received_alert:
     type: rasa.shared.core.slots.BooleanSlot
@@ -51,6 +78,12 @@ slots:
     initial_value: null
     auto_fill: true
     influence_conversation: false
+  city_slot:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+
 responses:
   utter_doesnt_answer:
   - text: Sorry, that doesn't answer my question
@@ -64,6 +97,8 @@ responses:
   - text: I am a bot, powered by Rasa.
   utter_report_weather_example:
   - text: It's bright and sunny!
+  utter_weather_question:
+  - text: Please enter a city.
   utter_self_test:
   - text: Send the self-test command and read the diagnostic code.
   utter_swap_transmitter:
@@ -151,10 +186,16 @@ actions:
 - action_test
 - validate_failure_form
 - weather_API
+
 forms:
   failure_form:
     failure_id:
     - entity: fid
       intent: user_provide_fid
       type: from_entity
+  weather_form:
+     city_id:
+      - entity: city
+        intent: user_provide_city
+        type: from_entity
 e2e_actions: []

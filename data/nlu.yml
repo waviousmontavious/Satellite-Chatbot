@@ -68,9 +68,9 @@ nlu:
     - got anything funny to share?
 - intent: ask_weather
   examples: |
-    - how is the weather?
-    - what's the weather like?
-    - weather?
+    - how is the weather in [Seattle](city)
+    - what's the weather like in [New York](city)
+    - weather [San Diego](city)
 - intent: something_wrong
   examples: |
     - I've got a problem
