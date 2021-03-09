@@ -2,6 +2,18 @@ version: "2.0"
 
 rules:
 
+# Tell user about sensor when needed
+- rule: Tell user about sensor
+  steps: 
+  - intent: user_sensor_query
+  - action: action_sensor_chatter
+
+# Tell user the list of sensors
+- rule: List sensors
+  steps:
+  - intent: user_ask_sensor_list
+  - action: utter_sensor_list
+
 # Test Action Rule
 - rule: run action test when requested
   steps:

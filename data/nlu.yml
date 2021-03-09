@@ -66,6 +66,7 @@ nlu:
     - tell me a joke
     - what jokes do you know?
     - got anything funny to share?
+    - I could really use a joke
 - intent: ask_weather
   examples: |
     - how is the weather?
@@ -103,12 +104,18 @@ nlu:
    - advanced baseline imager sensor
 - intent: user_sensor_query
   examples: |
-  - what does the [solar ultraviolet imager] (sensor) do?
-  - what is the [ultraviolet imager] (sensor:solar ultraviolet imager)?
-  - what is the [space environmental in-situ suite] (sensor)?
-  - what kind of sensor is the [in situ suite] (sensor:space environmental in-situ suite)?
-  - what kind of sensor is the [magnetometer] (sensor)?
-  - tell me about the [extreme ultraviolet x-ray irradiance sensor] (sensor)
-  - what does the [xray sensor] (sensor:extreme ultraviolet x-ray irradiance sensor) do?
-  - how does the [advanced baseline imager sensor] (sensor) work?
-  - what kind of sensor is the [baseline imager] (sensor:advanced baseline imager sensor)?
+    - what does the [solar ultraviolet imager](sensor) do?
+    - what is the [ultraviolet imager](sensor:solar ultraviolet imager)?
+    - what is the [space environmental in-situ suite](sensor)?
+    - what kind of sensor is the [in situ suite](sensor:space environmental in-situ suite)?
+    - what kind of sensor is the [magnetometer](sensor)?
+    - tell me about the [extreme ultraviolet x-ray irradiance sensor](sensor)
+    - what does the [xray sensor](sensor:extreme ultraviolet x-ray irradiance sensor) do?
+    - how does the [advanced baseline imager sensor](sensor) work?
+    - what kind of sensor is the [baseline imager](sensor:advanced baseline imager sensor)?
+- intent: user_ask_sensor_list
+  examples: |
+    - what kind of sensors are there?
+    - what is the list of sensors?
+    - how many sensors
+    - what are the different types of sensing modalities my dude

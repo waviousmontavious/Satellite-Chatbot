@@ -27,6 +27,10 @@ intents:
     use_entities: true
 - ask_weather:
     use_entities: true
+- user_sensor_query:
+    use_entities: true
+- user_ask_sensor_list:
+    use_entities: true
 entities:
 - fid
 - sensor
@@ -105,6 +109,17 @@ responses:
   - text: Enter the Failure ID (Number between 1 and 15)
   utter_ask_user_receiving_data:
   - text: Are you receiving data from the satellite?
+  utter_sensor_list:
+  - text: |-
+      Our current sensor list is as follows:
+      --------------------------------------------
+      solar ultraviolet imager
+      space environmental in-situ suite
+      magnetometer
+      extreme ultraviolet x-ray irradiance sensor
+      advanced baseline imager sensor
+      --------------------------------------------
+      Feel free to ask about any sensor
 actions:
 - action_show_failure
 - action_test

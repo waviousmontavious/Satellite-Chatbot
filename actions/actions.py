@@ -131,12 +131,12 @@ class SensorChatter(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         # Get the sensor in question
-        sensor_entity = tracker.latest_message[‘entities’][0]['value']
-        print (sensor_entity)
+        sensor_entity = tracker.latest_message['entities'][0]['value']
+        #print (sensor_entity)
 
         # Get the description from the database
-        sensor_desc = fid_db[sensor_entity]
-        print(sensor_desc)
+        sensor_desc = sensor_db[sensor_entity]
+        #print(sensor_desc)
 
         # Tell the user the description
         dispatcher.utter_message(text=sensor_desc)
