@@ -104,6 +104,25 @@ class ShowFailure(Action):
 
         return [AllSlotsReset()]
 
+# Action for running weatherAPI ----------------------------------------------------------------------------------
+class weatherAPIClass(Action):
+
+    activation_intent = ‘ask_weather’  # user intent that activates this form
+
+
+    def name(self) -> Text:
+        return “weather_API”
+    def run(
+        self,
+        dispatcher,
+        tracker: Tracker,
+        domain: "DomainDict",
+    ) -> List[Dict[Text, Any]]:
+	import weatherAPI as w
+	if tracker.get_intent_of_latest_message() == self.activation_intent:
+        	w.weatherAPI()
+
+        return []
 
 # Test Action for debugging purposes ----------------------------------------------------------------------------------
 class TestAction(Action):

@@ -105,10 +105,52 @@ responses:
   - text: Enter the Failure ID (Number between 1 and 15)
   utter_ask_user_receiving_data:
   - text: Are you receiving data from the satellite?
+
+# Q & A
+
+
+  utter_sat_access:
+  - text: You will have access to your satellite between 6 AM and 8 PM EST
+
+  utter_weather_affect:
+  - text: Heavy cloud layers should not affect satellite performance. Hail storms may have a minimal effect on performance but should not completely prevent access.
+
+  utter_data_rate:
+  - text: Your satellite is top of the line. It has a data transmittal rate of 1,000 zettabytes or 1 yottabyte.
+
+  utter_maint_orbit:
+  - text: Yes, your satellite is maintaining orbit and will be in orbit until 2057.
+
+  utter_orbit:
+  - text: Your satellite is in geosynchronous orbit.
+
+  utter_launched:
+  - text: Your satellite was launched on November 11, 1990.
+
+  utter_replaced:
+  - text: Your satellite will need to be replaced at EOL which is expected to be late 2057.
+
+  utter_mission_end:
+  - text: The mission for this satellite ends in early 2056. The satellite is expected to fall out of orbit in late 2057.
+
+  utter_built_by:
+  - text: This satellite was built by ELON MUSK'S OWN BLOOD, SWEAT, and TEARS.
+
+  utter_sat_name:
+  - text: This satellite is call "The Little Satellite that Could".
+
+  utter_sat_cost:
+  - text: This satellite had a total project cost of 10 billion dollars... billion, with a B
+
+  utter_bot_name:
+  - text: My name is Edith - "Even Dead, I am The Hero"
+
+
 actions:
 - action_show_failure
 - action_test
 - validate_failure_form
+- weather_API
 forms:
   failure_form:
     failure_id:
