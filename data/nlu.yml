@@ -69,9 +69,15 @@ nlu:
     - I could really use a joke
 - intent: ask_weather
   examples: |
-    - how is the weather?
-    - what's the weather like?
-    - weather?
+    - how is the weather in [Seattle](city)
+    - what's the weather like in [New York](city)
+    - weather [San Diego](city)
+    - what is the weather in [Los Angeles](city)
+    - what is the weather in [Chicago](city)
+    - how is the weather in [San Jose, CA](city)
+    - how is the weather in [Sunnyvale](city)
+    - weather in [Oakland](city)
+    - weather in [Denver](city)
 - intent: something_wrong
   examples: |
     - I've got a problem
@@ -92,6 +98,85 @@ nlu:
     - [8](fid)
     - the fid is [12](fid)
     - the number is [5](fid)
+
+ # Q & A
+ 
+- intent: sat_access
+  examples: |
+    - What time of day will I have access to the satellite?
+    - when will I have access to the satellite?
+    - will I have access to the satellite?
+    
+- intent: weather_affect
+  examples: |
+   - how will the weather affect my satellite?
+   - will I still have access during heavy cloud layers?
+   - will weather affect my satellite performance?
+    
+- intent: data_rate
+  examples: |
+   - at what data rate does my satellite transmit at?
+   - how fast does my satellite transmit data?
+   - what is my satellite's data rate
+   - data rate?
+    
+- intent: maint_orbit
+  examples: |
+   - is my satellite maintaining orbit?
+   - is my satellite still in orbit?
+   - maintaining orbit?
+    
+- intent: orbit
+  examples: |
+   - what orbit is my satellite in?
+   - orbit?
+   - which orbit is my satellite in?
+    
+- intent: launched
+  examples: |
+   - when did my satellite launch?
+   - launch date?
+   - satellite launch?
+   - what day did my satellite launch?
+    
+- intent: replace
+  examples: |
+   - when does my satellite need to be replaced?
+   - satellite replaced when?
+   - satellite replacement?
+    
+- intent: mission_end
+  examples: |
+   - when does the mission end for this satellite?
+   - mission end?
+   - what day does the mission for this satellite end?
+   - when in the future does the mission end for this satellite?
+    
+- intent: built_by
+  examples: |
+   - who was this satellite built by?
+   - what company built this satellite?
+   - by whom was this satellite built?
+    
+- intent: sat_name
+  examples: |
+   - what is the name of this satellite?
+   - name of satellite?
+   - satellite name?
+    
+- intent: sat_cost
+  examples: |
+   - how much does this satellite cost?
+   - satellite cost?
+   - cost?
+   - how much did it cost to build this satellite?
+    
+- intent: bot_name
+  examples: |
+   - what is your name?
+   - name of bot?
+   - name?
+
 - intent: user_action_test
   examples: |
     - action test

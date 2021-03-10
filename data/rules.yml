@@ -20,6 +20,12 @@ rules:
   - intent: user_action_test
   - action: action_test
 
+# Ask Weather Rule
+- rule: Report Weather in city when asked
+  steps:
+  - intent: ask_weather
+  - action: weather_API
+
 # Failure Form Rules IMPORTANT
 - rule: Activate Failure Form
   steps:
@@ -62,3 +68,65 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+
+# Q&A
+- rule: Respond with satelitte access period when requested
+  steps:
+  - intent: sat_access
+  - action: utter_sat_access
+
+- rule: Answer how weather will affect my satellite
+  steps:
+  - intent: weather_affect
+  - action: utter_weather_affect
+
+- rule: Answer data rate question
+  steps:
+  - intent: data_rate
+  - action: utter_data_rate
+
+- rule: Answer maintaining orbit
+  steps:
+  - intent: maint_orbit
+  - action: utter_maint_orbit
+
+- rule: Answer which orbit
+  steps:
+  - intent: orbit
+  - action: utter_orbit
+
+- rule: Answer when was my satellite launched
+  steps:
+  - intent: launched
+  - action: utter_launched
+
+- rule: Answer when satellite needs to be replaced
+  steps:
+  - intent: replace
+  - action: utter_replaced
+
+- rule: Answer when satellite mission ends
+  steps:
+  - intent: mission_end
+  - action: utter_mission_end
+
+- rule: Answer who built this satellite
+  steps:
+  - intent: built_by
+  - action: utter_built_by
+
+- rule: Answer does this satellite have a name?
+  steps:
+  - intent: sat_name
+  - action: utter_sat_name
+
+- rule: Answer how much satellite costs
+  steps:
+  - intent: sat_cost
+  - action: utter_sat_cost
+
+- rule: Answer what is your name?
+  steps:
+  - intent: bot_name
+  - action: utter_bot_name

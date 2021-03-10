@@ -5,7 +5,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormValidationAction
 from rasa_sdk.events import AllSlotsReset
 
-from action_utils import get_dict, get_last_bot_event
+from action_utils import get_dict, get_last_bot_event, get_weather
 
 
 fid_db = get_dict('./fid-dictionary.json')  # failure id dictionary
@@ -105,6 +105,30 @@ class ShowFailure(Action):
         return [AllSlotsReset()]
 
 
+# Action for running weatherAPI ----------------------------------------------------------------------------------
+class WeatherAPIClass(Action):
+
+    activation_intent = 'ask_weather'  # user intent that activates this form
+
+    def name(self) -> Text:
+        return "weather_API"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: "DomainDict",
+    ) -> List[Dict[Text, Any]]:
+        try:
+            city_entity = tracker.latest_message['entities'][0]['value']
+        except IndexError:
+            dispatcher.utter_message(text="Sorry, I couldn't determine the city you're asking for")
+            return []
+        weather = get_weather(city_entity)
+        dispatcher.utter_message(text=weather)
+        return []
+
+
 # Test Action for debugging purposes ----------------------------------------------------------------------------------
 class TestAction(Action):
     def name(self) -> Text:
@@ -117,7 +141,7 @@ class TestAction(Action):
         domain: "DomainDict",
     ) -> List[Dict[Text, Any]]:
 
-        print(fid_db)
+        print("This is a test Action")
 
         return []
 
