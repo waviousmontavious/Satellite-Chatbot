@@ -78,11 +78,6 @@ slots:
     initial_value: null
     auto_fill: true
     influence_conversation: false
-  city_slot:
-    type: rasa.shared.core.slots.TextSlot
-    initial_value: null
-    auto_fill: true
-    influence_conversation: true
 
 responses:
   utter_doesnt_answer:
@@ -193,9 +188,4 @@ forms:
     - entity: fid
       intent: user_provide_fid
       type: from_entity
-  weather_form:
-     city_id:
-      - entity: city
-        intent: user_provide_city
-        type: from_entity
 e2e_actions: []

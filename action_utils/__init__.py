@@ -1,1 +1,1 @@
-from .utilities import get_dict, get_last_bot_event
+from .utilities import get_dict, get_last_bot_event, get_weather

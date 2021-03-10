@@ -1,15 +1,6 @@
 version: "2.0"
 
 stories:
-# todo - add stories for basic satellite questions
-- story: ask weather sample
-  steps:
-  - intent: ask_weather
-  - slot_was_set:
-    - requested_slot: city_id
-  - slot_was_set:
-    - city_slot: true
-  - action: weather_API
 
 - story: diagnostic basic path
   steps:

@@ -8,6 +8,12 @@ rules:
   - intent: user_action_test
   - action: action_test
 
+# Ask Weather Rule
+- rule: Report Weather in city when asked
+  steps:
+  - intent: ask_weather
+  - action: weather_API
+
 # Failure Form Rules IMPORTANT
 - rule: Activate Failure Form
   steps:
