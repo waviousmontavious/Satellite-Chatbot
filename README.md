@@ -6,8 +6,7 @@
 2. Activate the virtual environment with the command `$ .env\Scripts\activate.bat`  
     a. If a pip upgrade is needed, run `$ python -m pip install --upgrade pip`
 3. Install the required packages with `$ pip install -r requirements.txt`
-4. Install the English model with `$ python -m spacy download en_core_web_sm`
-5. Run the command `$ rasa train` to create the model and confirm a working installation
+4. Run the command `$ rasa train` to create the model and confirm a working installation
 
 #### Rasa X (Optional)
 With Rasa X, you can interact with the bot through your browser.  
