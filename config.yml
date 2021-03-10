@@ -1,11 +1,11 @@
 # Configuration for Rasa NLU.
 # https://rasa.com/docs/rasa/nlu/components/
-#language: en
-language: es_core_news_sm
-
+# language: en
+# language: es_core_news_sm
+language: en_core_web_sm
 pipeline:
   - name: SpacyNLP
-    model: es_core_news_sm
+    model: en_core_web_sm
   - name: SpacyTokenizer
   - name: SpacyFeaturizer
   - name: RegexFeaturizer
