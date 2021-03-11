@@ -70,12 +70,30 @@ nlu:
 - intent: ask_weather
   examples: |
     - how is the weather in [Seattle](city)
-    - what's the weather like in [New York](city)
-    - weather [San Diego](city)
-    - what is the weather in [Los Angeles](city)
-    - what is the weather in [Chicago](city)
     - how is the weather in [San Jose, CA](city)
     - how is the weather in [Sunnyvale](city)
+    - how is the weather in [Los Angeles](city)
+    - how is the weather in [Milwaukee](city)
+    - what's the weather like in [New York](city)
+    - what's the weather like in [Dallas](city)
+    - what's the weather like in [Orlando](city)
+    - what is the weather in [Los Angeles](city)
+    - what is the weather in [Chicago](city)
+    - what is the weather in [Whittier](city)
+    - how is the weather in [Seattle](city)?
+    - how is the weather in [San Jose, CA](city)?
+    - how is the weather in [Sunnyvale](city)?
+    - how is the weather in [Los Angeles](city)?
+    - how is the weather in [Milwaukee](city)?
+    - what's the weather like in [New York](city)?
+    - what's the weather like in [Dallas](city)?
+    - what's the weather like in [Orlando](city)?
+    - what is the weather in [Los Angeles](city)?
+    - what is the weather in [Chicago](city)?
+    - what is the weather in [Whittier](city)?
+    - weather [San Jose](city)
+    - weather [San Diego](city)
+    - weather [Los Angeles](city)
     - weather in [Oakland](city)
     - weather in [Denver](city)
 - intent: something_wrong

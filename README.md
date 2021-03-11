@@ -1,4 +1,6 @@
-# Satellite Chatbot
+# Satellite Chatbot - Team 6
+_David Montes, Joe Cesena, Alex Dodd, and Spencer Burakowski_
+
 **A clever little bot for our satellite operators**
 
 ## Installation
